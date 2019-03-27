@@ -114,10 +114,7 @@
     </transition>
     </script>
     <modal v-if="showModal" @close="showModal = false">
-      <!--
-        you can use custom content here to overwrite
-        default content
-      -->
+
       <h3 slot="header">Edit Data</h3>
       <form id="itemsForm" slot="body" class="form-horizontal" v-on:submit.prevent="validateBeforeSubmit">
 
@@ -143,6 +140,9 @@
 
      Daftar Mahasiswa
      <table class="table table-stripped">
+         <?php foreach ($data->result_array() as $d){
+
+         }?>
        <tr v-for="mhs of mahasiswa">
          <td><strong>{{mhs.nama}}</strong></td>
          <td>{{mhs.asal}}</td>

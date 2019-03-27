@@ -20,6 +20,9 @@ foreach ($paket->result_array() as $pkt) {
 
 
 echo $this->table->generate();
+//membuat link pagination dengan create_links()
+echo $this->pagination->create_links();
+echo "<br>";
 echo anchor('c_paket/tambah_paket', 'Tambah paket');
 echo "<br>";
 echo anchor('c_penghuni', 'List penghuni');

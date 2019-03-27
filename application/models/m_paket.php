@@ -6,14 +6,31 @@ class M_Paket extends CI_Model {
     parent::__construct();
 
   }
-	public function list_paket($id=""){
-    if($id==""){
+  public function getTotalPaket(){
+	    return $this->db->get('paket');
+  }
+
+  public function getPaketLimit($halaman, $jumlah){
+      return $this->db->query("
+              SELECT * 
+              from PAKET 
+              LEFT join penghuni 
+                ON penghuni.idpenghuni = paket.sasaran
+                LIMIT $halaman,$jumlah");
+
+  }
+  public function list_paket($id=""){
+        if($id==""){
       // $this->db->select('*');
       // $this->db->from('paket');
       // $this->db->join('penghuni', 'penghuni.idpenghuni = paket.sasaran', 'left');
       // return $this->db->get();
 
-			return $this->db->query("SELECT * from PAKET LEFT join penghuni ON penghuni.idpenghuni = paket.sasaran");
+			return $this->db->query("
+              SELECT * 
+              from PAKET 
+              LEFT join penghuni 
+                ON penghuni.idpenghuni = paket.sasaran");
     }
 
     else

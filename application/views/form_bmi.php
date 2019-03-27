@@ -7,7 +7,10 @@ echo "<br>";
 echo form_label('berat');
 echo form_input('berat');
 echo "<br>";
-$options = array("laki" => "laki-laki", "perempuan" => "perempuan");
+$options = array(
+    "laki"      => "laki-laki",
+    "perempuan" => "perempuan"
+);
 echo form_label('Jenis kelamin');
 echo form_dropdown('jk', $options);
 echo "<br>";

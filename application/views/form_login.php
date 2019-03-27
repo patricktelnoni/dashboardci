@@ -1,10 +1,11 @@
 <?php
-echo form_open('Flashdata/login');
-echo form_label('Nama', 'Nama');
-echo form_input('Nama');
+echo validation_errors();
+echo form_open('Welcome/dologin');
+echo form_label('Username', 'Username');
+echo form_input('username');
 echo "<br>";
-echo form_label('Nim', 'Nim');
-echo form_input('Nim');
+echo form_label('Password', 'Password');
+echo form_password('password');
 echo "<br>";
 echo form_submit('Kirim', 'Kirim');
 echo form_close();

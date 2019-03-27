@@ -1,21 +1,30 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Baru extends CI_Controller {
+class Baru extends MY_Controller{
 	public function __construct(){
-    parent::__construct();
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-  }
+        parent::__construct();
+    }
 	public function index(){
-		echo "Index";
+        $this->load->view('welcome_message');
 	}
 	//localhost/CI3/index.php/baru/form
 	public function form(){
 		$this->load->view('form');
 	}
+
+	public function laporan(){
+		$this->load->model("m_mahasiswa");
+		$data['report'] = $this->m_mahasiswa->getreport();
+		$this->load->view('paket/report', $data);
+	}
+
+
+
+	
   public function methodBaru(){
-    $this->load->view('baru');
+    $data['kiriman'] = array(1,2,3,4,5);
+    $this->load->view('baru', $data);
 	}
 	//localhost/CI3/index.php/baru/sampelkonten
   public function sampelkonten(){

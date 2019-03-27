@@ -34,7 +34,20 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="<?=base_url()?>index.php/baru/methodBaru">method baru <span class="sr-only">(current)</span></a></li>
+          <li <?php if($this->uri->segment(1) == "baru") echo 'class="active"';?>>
+                 <a href="<?=base_url()?>index.php/baru/methodBaru">method baru <span class="sr-only">(current)</span></a></li>
+            <?php
+            if(isset($_SESSION['login'])){?>
+                <li><a href="<?=base_url()?>index.php/Welcome/logout">Logout</a></li>
+                <?php
+
+            }
+            else{?>
+                <li><a href="<?=base_url()?>index.php/Welcome/formlogin">Coba login</a></li>
+            <?php
+            }
+            ?>
+
           <li><a href="<?=base_url()?>index.php/baru/sampelkonten">sampel konten</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
